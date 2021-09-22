@@ -13,18 +13,30 @@ const imagens = [
 
 //MAP - FILTER - REDUCE -> Declarativa
 
-// *** MANEIRA INCORRETA DE SE FAZER E QUE SE ENCONTRA SEMPRE NA INTERNET ***
 
 const criarItem = (urlImagem) => {
     const container = document.querySelector(".galeria-container")
-    container.innerHTML += `
-         <a href="${urlImagem}" class="galeria-itens">
-            <img src="${urlImagem}" alt=""> 
-        </a>
-    `
+    
+    const novoLink = document.createElement("a")
+    novoLink.href = urlImagem
+    novoLink.classList.add("galeria-itens")
+    novoLink.innerHTML = `<img src="${urlImagem}" alt=""></img`
+    container.appendChild(novoLink)
+
+// *** MANEIRA INCORRETA DE SE FAZER E QUE SE ENCONTRA SEMPRE NA INTERNET ***
+    // container.innerHTML += `
+    //      <a href="${urlImagem}" class="galeria-itens">
+    //         <img src="${urlImagem}" alt=""> 
+    //     </a>
+    // `
 }
 
 const carregarImagens = () => imagens.forEach(criarItem) 
 
 carregarImagens()
+
+
+
+ 
+
 
